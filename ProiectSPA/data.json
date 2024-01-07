@@ -1,0 +1,74 @@
+{
+    "denis": {
+        "username": "denis",
+        "password": "parola\n",
+        "sd": 0,
+        "isAuthenticated": 0,
+        "parkingSpot": 0,
+        "hasSubscription": false,
+        "entry_time": 0
+    },
+    "admin": {
+        "username": "admin",
+        "password": "admin\n",
+        "sd": 0,
+        "isAuthenticated": 0,
+        "parkingSpot": 0,
+        "hasSubscription": false,
+        "entry_time": 0
+    },
+    "prof": {
+        "username": "prof",
+        "password": "faraparola\n",
+        "sd": 0,
+        "isAuthenticated": 0,
+        "parkingSpot": 0,
+        "hasSubscription": false,
+        "entry_time": 0
+    },
+    "duliba": {
+        "username": "duliba",
+        "password": "sagna\n",
+        "sd": 0,
+        "isAuthenticated": 0,
+        "parkingSpot": 0,
+        "hasSubscription": false,
+        "entry_time": 0
+    },
+    "user": {
+        "username": "user",
+        "password": "username\n",
+        "sd": 0,
+        "isAuthenticated": 0,
+        "parkingSpot": 0,
+        "hasSubscription": false,
+        "entry_time": 0
+    },
+    "dia": {
+        "username": "dia",
+        "password": "blue\n",
+        "sd": 0,
+        "isAuthenticated": 0,
+        "parkingSpot": 0,
+        "hasSubscription": false,
+        "entry_time": 0
+    },
+    "marci": {
+        "username": "marci",
+        "password": "vecinu\n",
+        "sd": 0,
+        "isAuthenticated": 0,
+        "parkingSpot": 0,
+        "hasSubscription": false,
+        "entry_time": 0
+    },
+    "test1": {
+        "username": "test1",
+        "password": "test\n",
+        "sd": 0,
+        "isAuthenticated": 0,
+        "parkingSpot": 0,
+        "hasSubscription": false,
+        "entry_time": 0
+    }
+}

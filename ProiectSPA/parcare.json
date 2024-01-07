@@ -1,0 +1,502 @@
+[
+    {
+        "spotNumber": 1,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 2,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 3,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 4,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 5,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 6,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 7,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 8,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 9,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 10,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 11,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 12,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 13,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 14,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 15,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 16,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 17,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 18,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 19,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 20,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 21,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 22,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 23,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 24,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 25,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 26,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 27,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 28,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 29,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 30,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 31,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 32,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 33,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 34,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 35,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 36,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 37,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 38,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 39,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 40,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 41,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 42,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 43,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 44,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 45,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 46,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 47,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 48,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 49,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 50,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 51,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 52,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 53,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 54,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 55,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 56,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 57,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 58,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 59,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 60,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 61,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 62,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 63,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 64,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 65,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 66,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 67,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 68,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 69,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 70,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 71,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 72,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 73,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 74,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 75,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 76,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 77,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 78,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 79,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 80,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 81,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 82,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 83,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 84,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 85,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 86,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 87,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 88,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 89,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 90,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 91,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 92,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 93,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 94,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 95,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 96,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 97,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 98,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 99,
+        "isOccupied": 0,
+        "clientName": 0
+    },
+    {
+        "spotNumber": 100,
+        "isOccupied": 0,
+        "clientName": 0
+    }
+]
