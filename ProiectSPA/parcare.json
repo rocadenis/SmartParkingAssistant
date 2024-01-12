@@ -1,18 +1,18 @@
 [
     {
         "spotNumber": 1,
-        "isOccupied": 0,
-        "clientName": 0
+        "isOccupied": 1,
+        "clientName": "admin"
     },
     {
         "spotNumber": 2,
-        "isOccupied": 0,
-        "clientName": 0
+        "isOccupied": 1,
+        "clientName": "diandra"
     },
     {
         "spotNumber": 3,
-        "isOccupied": 0,
-        "clientName": 0
+        "isOccupied": 1,
+        "clientName": "denis"
     },
     {
         "spotNumber": 4,
