@@ -8,7 +8,15 @@
 
 #define SERVER_IP "127.0.0.1"
 #define SERVER_PORT 8080
-#define BUFFER_SIZE 10024
+#define BUFFER_SIZE 20024
+
+void mesajprimire(){
+
+    printf("\nBun venit în Smart Parking Assistant!\n");
+    printf("Pentru a continua, te rugăm să folosești următoarele comenzi:\n");
+    printf(" - Pentru a crea un cont, folosește comanda: create\n");
+    printf(" - Pentru a te autentifica, folosește comanda: login\n\n");
+}
 
 int main() {
     int client_fd;
@@ -31,7 +39,7 @@ int main() {
         close(client_fd);
         exit(EXIT_FAILURE);
     }
-
+    mesajprimire();
     // Ciclu infinit care se termină la comanda "exit"
     while (1) {
         printf("Introduceti comanda:\n");

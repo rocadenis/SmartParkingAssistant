@@ -1,72 +1,36 @@
 {
-    "denis": {
-        "username": "denis",
-        "password": "parola\n",
-        "sd": 0,
-        "isAuthenticated": 0,
-        "parkingSpot": 0,
-        "hasSubscription": false,
-        "entry_time": 0
-    },
     "admin": {
         "username": "admin",
-        "password": "admin\n",
+        "password": "admin",
         "sd": 0,
-        "isAuthenticated": 0,
-        "parkingSpot": 0,
+        "isAuthenticated": 1,
+        "parkingSpot": 1,
         "hasSubscription": false,
-        "entry_time": 0
+        "entry_time": 1705078467
     },
-    "prof": {
-        "username": "prof",
-        "password": "faraparola\n",
+    "denis": {
+        "username": "denis",
+        "password": "parola",
         "sd": 0,
-        "isAuthenticated": 0,
-        "parkingSpot": 0,
-        "hasSubscription": false,
-        "entry_time": 0
+        "isAuthenticated": 1,
+        "parkingSpot": 3,
+        "hasSubscription": true,
+        "entry_time": 1705088268
     },
-    "duliba": {
-        "username": "duliba",
-        "password": "sagna\n",
+    "diandra": {
+        "username": "diandra",
+        "password": "parola",
         "sd": 0,
-        "isAuthenticated": 0,
-        "parkingSpot": 0,
+        "isAuthenticated": 1,
+        "parkingSpot": 2,
         "hasSubscription": false,
-        "entry_time": 0
+        "entry_time": 1705086665
     },
     "user": {
         "username": "user",
-        "password": "username\n",
+        "password": "user",
         "sd": 0,
-        "isAuthenticated": 0,
-        "parkingSpot": 0,
-        "hasSubscription": false,
-        "entry_time": 0
-    },
-    "dia": {
-        "username": "dia",
-        "password": "blue\n",
-        "sd": 0,
-        "isAuthenticated": 0,
-        "parkingSpot": 0,
-        "hasSubscription": false,
-        "entry_time": 0
-    },
-    "marci": {
-        "username": "marci",
-        "password": "vecinu\n",
-        "sd": 0,
-        "isAuthenticated": 0,
-        "parkingSpot": 0,
-        "hasSubscription": false,
-        "entry_time": 0
-    },
-    "test1": {
-        "username": "test1",
-        "password": "test\n",
-        "sd": 0,
-        "isAuthenticated": 0,
+        "isAuthenticated": 1,
         "parkingSpot": 0,
         "hasSubscription": false,
         "entry_time": 0
