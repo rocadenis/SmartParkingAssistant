@@ -13,18 +13,18 @@
         "password": "parola",
         "sd": 0,
         "isAuthenticated": 1,
-        "parkingSpot": 0,
+        "parkingSpot": 6,
         "hasSubscription": false,
-        "entry_time": 0
+        "entry_time": 1705242453
     },
     "diandra": {
         "username": "diandra",
         "password": "parola",
         "sd": 0,
         "isAuthenticated": 1,
-        "parkingSpot": 2,
+        "parkingSpot": 0,
         "hasSubscription": false,
-        "entry_time": 1705086665
+        "entry_time": 0
     },
     "user": {
         "username": "user",
@@ -70,5 +70,32 @@
         "parkingSpot": 4,
         "hasSubscription": false,
         "entry_time": 1705157426
+    },
+    "user4": {
+        "username": "user4",
+        "password": "user",
+        "sd": 0,
+        "isAuthenticated": 1,
+        "parkingSpot": 5,
+        "hasSubscription": true,
+        "entry_time": 1705242210
+    },
+    "user5": {
+        "username": "user5",
+        "password": "user",
+        "sd": 0,
+        "isAuthenticated": 1,
+        "parkingSpot": 0,
+        "hasSubscription": false,
+        "entry_time": 0
+    },
+    "Sami": {
+        "username": "Sami",
+        "password": "parola",
+        "sd": 0,
+        "isAuthenticated": 1,
+        "parkingSpot": 0,
+        "hasSubscription": false,
+        "entry_time": 0
     }
 }

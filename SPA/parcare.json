@@ -6,8 +6,8 @@
     },
     {
         "spotNumber": 2,
-        "isOccupied": 1,
-        "clientName": "diandra"
+        "isOccupied": 0,
+        "clientName": 0
     },
     {
         "spotNumber": 3,
@@ -21,13 +21,13 @@
     },
     {
         "spotNumber": 5,
-        "isOccupied": 0,
-        "clientName": 0
+        "isOccupied": 1,
+        "clientName": "user4"
     },
     {
         "spotNumber": 6,
-        "isOccupied": 0,
-        "clientName": 0
+        "isOccupied": 1,
+        "clientName": "denis"
     },
     {
         "spotNumber": 7,

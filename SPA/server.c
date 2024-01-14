@@ -606,7 +606,7 @@ void handleCommand(char *command, Client *client, parkingInfo *info, int client_
     } else if (strncmp(command, "Parcheaza", 9) == 0) {
                 if (client->parkingSpot == 0) {
 
-                    snprintf(buffer, sizeof(buffer), "Doriți abonament pe 14 zile sau parcare simplă cu plata de 10 lei/oră? (abonament/plata)");
+                    snprintf(buffer, sizeof(buffer), "Doriți abonament pe 14 zile (800 lei)\n sau parcare simplă cu plata de 10 lei/oră? (Abonament/Plata)");
                     
                     send(client_sock, buffer, strlen(buffer), 0);
                     memset(buffer, 0, BUFFER_SIZE);
@@ -661,18 +661,18 @@ void handleCommand(char *command, Client *client, parkingInfo *info, int client_
                             } else {
                                 printf("Doar admin-ul poate închide serverul.\n");
                             }
-    } else if (strncmp(command, "quit", 4) == 0){
-        printf(" %s a fost deconectat", client->username);
-        logout(client);
-
-        snprintf(buffer, sizeof(buffer), "Clientul a fost deconectat");
-        send(client_sock, buffer, strlen(buffer), 0);
     } else if (strncmp(command, "Cauta un loc de parcare", 23) == 0) {
 
              getFreeParkingInfo(info);
+               
+             if(info->locuri_libere == 0 ){
+                        snprintf(buffer, sizeof(buffer), "Nu sunt locuri dispoibile momentan. Va rugam reveniti mai tarziu.");
+                        send(client_sock, buffer, strlen(buffer), 0);
+             }else{
 
             snprintf(buffer, sizeof(buffer), "Sunt %d locuri libere. Cel mai apropiat loc liber are numarul %d", info->locuri_libere, info->loc_liber);
             send(client_sock, buffer, strlen(buffer), 0);
+            }
 
 //logout
     } else if (strncmp(command, "Deconectare", 11) == 0) {

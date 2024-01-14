@@ -39,7 +39,6 @@ CommandInfo commands_info[] = {
     {"Parcheaza", "Occupy a parking spot"},
     {"Abonament","Aveti abonament pe 14 zile in valoare de 800 Lei."},
     {"Plata","Sunteti parcat si veti fi taxat cu 10 Lei/ora"},
-    {"quit", "Disconnect from the server"},
     {"Cauta un loc de parcare", "Show parking space information"},
     {"Deconectare","Contul utilizatorului a fost deconectat."},
     {"Initializare sistem", "Initialize the parking system"},
@@ -183,7 +182,7 @@ static void create_gui(AppData *data) {
     // Create a button for submitting commands
     submit_button = gtk_button_new_with_label("Submit");
     g_signal_connect(submit_button, "clicked", G_CALLBACK(on_submit_clicked), data);
-    gtk_grid_attach(GTK_GRID(data->grid), submit_button, 1, 2, 1, 1);
+    gtk_grid_attach(GTK_GRID(data->grid), submit_button, 1, 2, 1, 1);// 0, 2, 1, 1
 
     // Set up the text buffer for the text view
     data->buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(data->text_view));
