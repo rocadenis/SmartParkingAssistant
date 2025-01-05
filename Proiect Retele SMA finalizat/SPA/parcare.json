@@ -6,8 +6,8 @@
     },
     {
         "spotNumber": 2,
-        "isOccupied": 0,
-        "clientName": 0
+        "isOccupied": 1,
+        "clientName": "user2025"
     },
     {
         "spotNumber": 3,
@@ -31,8 +31,8 @@
     },
     {
         "spotNumber": 7,
-        "isOccupied": 0,
-        "clientName": 0
+        "isOccupied": 1,
+        "clientName": "user"
     },
     {
         "spotNumber": 8,

@@ -43,7 +43,7 @@ Client *head = NULL;
 typedef struct ParkingSpot {
     int spotNumber;
     int isOccupied;
-    char clientName; // Schimbat de la 'clientname' la 'clientName'
+    char clientName; 
     struct ParkingSpot *next;
 } ParkingSpot;
 
@@ -78,7 +78,7 @@ int writeToJSONFile(char *filename, char *data) {
 
 //initializare locuri de parcare
 void initPark() {
-    // Fișierul JSON nu există, creăm unul nou
+    // Fisierul JSON nu exista, cream unul nou
     char *data = malloc(BUFFER_SIZE * sizeof(char));
     if (data == NULL) {
         perror("Eroare la alocarea memoriei pentru data");
@@ -110,7 +110,6 @@ void initPark() {
         exit(EXIT_FAILURE);
     }
     else{
-         // Scrierea în fișier
         writeToJSONFile(PARK_FILE, serialized);
     }
 
@@ -124,11 +123,12 @@ void initPark() {
 
 //initializare conturi
 void deleteAllAccounts() {
-    // Încarcă datele din fișierul JSON
     char data[BUFFER_SIZE];
-    readFromJSONFile(JSON_FILE, data);
-
-    // Parsează datele JSON
+        
+    if (!readFromJSONFile(JSON_FILE, data)) {
+        fprintf(stderr, "Eroare la citirea fișierului JSON.\n");
+        return;
+    }
     json_error_t error;
     json_t *root = json_loads(data, 0, &error);
     if (!root) {
@@ -136,7 +136,6 @@ void deleteAllAccounts() {
         exit(EXIT_FAILURE);
     }
 
-    // Obține contul "admin" (presupunând că există un cont "admin")
     json_t *adminAccount = json_object_get(root, "admin");
     if (!json_is_object(adminAccount)) {
         fprintf(stderr, "Eroare: Nu s-a găsit contul \"admin\" în fișierul JSON.\n");
@@ -144,7 +143,6 @@ void deleteAllAccounts() {
         exit(EXIT_FAILURE);
     }
 
-    // Șterge toate conturile, cu excepția contului "admin"
     const char *username;
     json_t *account;
     json_object_foreach(root, username, account) {
@@ -153,10 +151,6 @@ void deleteAllAccounts() {
         }
     }
 
-    // Adaugă înapoi contul "admin"
-    json_object_set(root, "admin", adminAccount);
-
-    // Serializează obiectul JSON actualizat și scrie în fișier
     char *serialized = json_dumps(root, JSON_INDENT(4));
     if (!serialized) {
         fprintf(stderr, "Eroare la serializarea obiectului JSON\n");
@@ -166,7 +160,6 @@ void deleteAllAccounts() {
 
     writeToJSONFile(JSON_FILE, serialized);
 
-    // Eliberează memoria și eliberează obiectul JSON
     free(serialized);
     json_decref(root);
 
@@ -176,12 +169,10 @@ void deleteAllAccounts() {
 
 //verificare existenta unui cont
 int userExists(const char *username, const char *password) {
-    // Încarcă datele din fișierul JSON
     char data[BUFFER_SIZE];
     memset(data,0,BUFFER_SIZE);
     readFromJSONFile(JSON_FILE, data);
 
-    // Parsează datele JSON
     json_error_t error;
     json_t *root = json_loads(data, 0, &error);
     if (!root) {
@@ -189,21 +180,19 @@ int userExists(const char *username, const char *password) {
         exit(EXIT_FAILURE);
     }
 
-    // Obține structura de date
     json_t *dataStruct = json_object_get(root, username);
     if (!dataStruct) {
-        // Utilizatorul nu există
+        //utilizatorul nu exista
         json_decref(root);
         return 0;
     }
 
-    // Verifică parola
     const char *jsonPassword = json_string_value(json_object_get(dataStruct, "password"));
     if (strcmp(password, jsonPassword) == 0) {
         json_decref(root);
         return 1; //gasit
     } else {
-        // Parola este incorectă
+        // parola este incorectă
         json_decref(root);
         return 2; 
     }
@@ -212,11 +201,13 @@ int userExists(const char *username, const char *password) {
 
 //adaugare cont in file
 const char* addAccountToJson(const char *username, const char *password) {
-    // Load the data from the JSON file
-    char data[BUFFER_SIZE];
-    readFromJSONFile(JSON_FILE, data);
 
-    // Parse the JSON data
+    char data[BUFFER_SIZE];
+    if (!readFromJSONFile(JSON_FILE, data)) {
+        fprintf(stderr, "Eroare la citirea fișierului JSON.\n");
+        return;
+    }
+
     json_error_t error;
     json_t *root = json_loads(data, 0, &error);
     if (!root) {
@@ -224,7 +215,7 @@ const char* addAccountToJson(const char *username, const char *password) {
         exit(EXIT_FAILURE);
     }
 
-    // Check for duplicate usernames in the existing data
+    // verific pentru numele deja existente 
     bool foundExistingAccount = false;
     void *iter = json_object_iter(root);
     while(iter) {
@@ -236,13 +227,10 @@ const char* addAccountToJson(const char *username, const char *password) {
         iter = json_object_iter_next(root, iter);
     }
 
-    // If a duplicate username is found, return a message indicating that the username already exists
     if (foundExistingAccount == true) {
         json_decref(root);
         return "exista";
-    } else {
-
-    // Create a new data object
+    } else {//creez alt obiect
     json_t *newDataObject = json_object();
     json_object_set_new(newDataObject, "username", json_string(username));
     json_object_set_new(newDataObject, "password", json_string(password));
@@ -252,10 +240,8 @@ const char* addAccountToJson(const char *username, const char *password) {
     json_object_set_new(newDataObject, "hasSubscription", json_boolean(false));
     json_object_set_new(newDataObject, "entry_time", json_integer(0));
 
-    // Add the new data object to the root object
     json_object_set_new(root, username, newDataObject);
 
-    // Serialize the JSON object and write it to the file
     char *serialized = json_dumps(root, JSON_INDENT(4));
     if (!serialized) {
         fprintf(stderr, "Error serializing JSON object\n");
@@ -268,11 +254,9 @@ const char* addAccountToJson(const char *username, const char *password) {
 
     writeToJSONFile(JSON_FILE, serialized);
 
-    // Free the memory
     free(serialized);
     json_decref(root);
 
-    // Return a message indicating that the account was created successfully
     return "creat";
     }
 }
@@ -280,25 +264,26 @@ const char* addAccountToJson(const char *username, const char *password) {
 
 //logout account 
 void logout(Client *client){
- pthread_mutex_lock(&lock);
-  strcpy(client->username, "");
- strcpy(client->password, "");
-  client ->isAuthenticated = 0;
-  client->parkingSpot = 0;
-  client->hasSubscription = false;
-  client->entry_time = 0;
-pthread_mutex_unlock(&lock);
+
+    pthread_mutex_lock(&lock);
+        strcpy(client->username, "");
+        strcpy(client->password, "");
+        client ->isAuthenticated = 0;
+        client->parkingSpot = 0;
+        client->hasSubscription = false;
+        client->entry_time = 0;
+    pthread_mutex_unlock(&lock);
+
 }
 
 
-//actulaizare in struct informatiile despre client
+//actulizez in struct informatiile despre client
 struct Client *getUser(Client *client, const char *username,int  client_sock) {
-  // Încarcă datele din fișierul JSON
+
   pthread_mutex_lock(&lock);
   char data[BUFFER_SIZE];
   readFromJSONFile(JSON_FILE, data);
 
-  // Parsează datele JSON
   json_error_t error;
   json_t *root = json_loads(data, 0, &error);
   if (!root) {
@@ -306,10 +291,9 @@ struct Client *getUser(Client *client, const char *username,int  client_sock) {
     exit(EXIT_FAILURE);
   }
 
-  // Obține structura de date
   json_t *dataStruct = json_object_get(root, username);
   if (!dataStruct) {
-    // Utilizatorul nu există
+    // Utilizatorul nu exista
     json_decref(root);
     return NULL;
   }
@@ -334,7 +318,7 @@ struct Client *getUser(Client *client, const char *username,int  client_sock) {
 
 //informatii despre locuri de parcare si cel mai apropiar loc liber
 void getFreeParkingInfo(parkingInfo *park) {
-    // Încarcăm datele din fișierul JSON
+
     char data[BUFFER_SIZE];
     memset(data,0, BUFFER_SIZE);
     if (!readFromJSONFile(PARK_FILE, data)) {
@@ -342,7 +326,6 @@ void getFreeParkingInfo(parkingInfo *park) {
         exit(EXIT_FAILURE);
     }
 
-    // Parsează datele JSON
     json_error_t error;
     json_t *root = json_loads(data, 0, &error);
     if (!root) {
@@ -350,20 +333,20 @@ void getFreeParkingInfo(parkingInfo *park) {
         exit(EXIT_FAILURE);
     }
 
-    // Inițializare la începutul parcajului
+    // Initializare la începutul parcajului
     park->loc_liber = 0;
     park->locuri_libere = 0;
 
     for (int i = 0; i < json_array_size(root); i++) {
         json_t *spotObject = json_array_get(root, i);
 
-        // Verificăm dacă locul este ocupat sau liber
+        // Verific daca locul este ocupat sau liber
         int isOccupied = json_integer_value(json_object_get(spotObject, "isOccupied"));
         if (isOccupied == 0) {
             // Locul este liber
             park->locuri_libere++;
 
-            // Verificăm dacă acesta este cel mai apropiat loc liber
+            // verific daca acesta este cel mai apropiat loc liber
             int spotNumber = json_integer_value(json_object_get(spotObject, "spotNumber"));
             if (park->loc_liber == 0 || spotNumber < park->loc_liber) {
                 park->loc_liber = spotNumber;
@@ -371,16 +354,14 @@ void getFreeParkingInfo(parkingInfo *park) {
         }
     }
 
-    // Eliberăm memoria și eliberăm obiectul JSON
     json_decref(root);
 }
 
 //actualizare in file informatiile despre locul de parcare
 void updateParkingJSONFile(int spotNumber, char *clientName) {
-    // Blochează mutex-ul pentru siguranță la accesul la date
+
     pthread_mutex_lock(&lock);
 
-    // Încarcă datele din fișierul JSON
     char data[BUFFER_SIZE];
     memset(data, 0, BUFFER_SIZE);
     if (!readFromJSONFile(PARK_FILE, data)) {
@@ -389,7 +370,6 @@ void updateParkingJSONFile(int spotNumber, char *clientName) {
         exit(EXIT_FAILURE);
     }
 
-    // Parsează datele JSON
     json_error_t error;
     json_t *root = json_loads(data, 0, &error);
     if (!root) {
@@ -398,20 +378,19 @@ void updateParkingJSONFile(int spotNumber, char *clientName) {
         exit(EXIT_FAILURE);
     }
 
-    // Găsește locul de parcare în array-ul JSON și actualizează valorile
+    // gasesc locul de parcare în array-ul JSON si actualizeaz valorile
     for (int i = 0; i < json_array_size(root); i++) {
         json_t *spotObject = json_array_get(root, i);
         int currentSpotNumber = json_integer_value(json_object_get(spotObject, "spotNumber"));
 
         if (currentSpotNumber == spotNumber) {
-            // Locul de parcare a fost găsit
+            // Locul de parcare a fost gasit
             json_object_set_new(spotObject, "isOccupied", json_integer(1));
             json_object_set_new(spotObject, "clientName", json_string(clientName));
             break;
         }
     }
         
-    // Serializare obiect JSON actualizat
     char *serialized = json_dumps(root, JSON_INDENT(4));
     if (!serialized) {
         fprintf(stderr, "Eroare la serializarea obiectului JSON pentru locurile de parcare\n");
@@ -419,10 +398,9 @@ void updateParkingJSONFile(int spotNumber, char *clientName) {
         exit(EXIT_FAILURE);
     }
 
-    // Scrie obiectul JSON actualizat în fișierul cunoscut
     writeToJSONFile(PARK_FILE, serialized);
 
-    // Eliberează memoria și deblochează mutex-ul
+    // Eliberez memoria si deblocheaz mutex-ul
     pthread_mutex_unlock(&lock);
     json_decref(root);
     free(serialized);
@@ -482,10 +460,9 @@ void updateClientJSONFile(Client *client) {
 
 // elibereaza loc de parcare si actualizeaza in client
 void freeParkingSpot(int spotNumber, Client *client) {
-    // Blochează mutex-ul pentru siguranță la accesul la date
+
     pthread_mutex_lock(&lock);
 
-    // Încarcă datele din fișierul JSON al locurilor de parcare
     char data[BUFFER_SIZE];
     //memset(data, 0, BUFFER_SIZE);
     if (!readFromJSONFile(PARK_FILE, data)) {
@@ -494,7 +471,6 @@ void freeParkingSpot(int spotNumber, Client *client) {
         exit(EXIT_FAILURE);
     }
 
-    // Parsează datele JSON
     json_error_t error;
     json_t *root = json_loads(data, 0, &error);
     if (!root) {
@@ -503,7 +479,7 @@ void freeParkingSpot(int spotNumber, Client *client) {
         exit(EXIT_FAILURE);
     }
 
-    // Găsește locul de parcare cu numărul dat
+    // Gaseste locul de parcare cu numărul dat
     int foundSpotIndex = -1;
     for (int i = 0; i < json_array_size(root); i++) {
         json_t *spotObject = json_array_get(root, i);
@@ -511,24 +487,23 @@ void freeParkingSpot(int spotNumber, Client *client) {
         int isOccupied = json_integer_value(json_object_get(spotObject, "isOccupied"));
 
         if (currentSpotNumber == spotNumber && isOccupied) {
-            // Locul de parcare ocupat a fost găsit
+            // Locul de parcare ocupat a fost gasit
             foundSpotIndex = i;
             break;
         }
     }
 
     if (foundSpotIndex != -1) {
-        // Actualizează structura locului de parcare pentru a-l elibera
+        // Actualizez structura locului de parcare pentru a-l elibera
         json_t *foundSpotObject = json_array_get(root, foundSpotIndex);
         json_object_set_new(foundSpotObject, "isOccupied", json_integer(0));
         json_object_set_new(foundSpotObject, "clientName", json_integer(0));
 
-        // Actualizează structura clientului pentru a marca eliberarea locului
-        client->parkingSpot = 0;  // sau altă valoare semnificativă pentru loc neocupat
+        // Actualizez structura clientului pentru a marca eliberarea locului
+        client->parkingSpot = 0; 
         client->entry_time = 0;
         client->hasSubscription = false;
 
-        // Serializare obiect JSON actualizat
         char *serialized = json_dumps(root, JSON_INDENT(4));
         if (!serialized) {
             fprintf(stderr, "Eroare la serializarea obiectului JSON pentru locurile de parcare\n");
@@ -536,24 +511,20 @@ void freeParkingSpot(int spotNumber, Client *client) {
             exit(EXIT_FAILURE);
         }
 
-        // Scrie obiectul JSON actualizat în fișierul cunoscut
         writeToJSONFile(PARK_FILE, serialized);
 
-        // Eliberează memoria și deblochează mutex-ul
         pthread_mutex_unlock(&lock);
         free(serialized);
 
         updateClientJSONFile(client);
 
     } else {
-        // Tratează cazul în care locul de parcare nu a fost găsit sau este deja liber
+        // Tratez cazul in care locul de parcare nu a fost gasit sau este deja liber
         printf("Locul de parcare cu numărul %d nu este ocupat sau nu există.\n", spotNumber);
 
-        // Deblochează mutex-ul
         pthread_mutex_unlock(&lock);
     }
 
-    // Eliberează memoria și eliberează obiectul JSON
     json_decref(root);
 }
 
@@ -562,10 +533,9 @@ int clientsPayment(Client *client) {
         time_t currentTime;
         time(&currentTime);
 
-        // Calculează diferența de ore și aplică tariful
         int hoursParked = (currentTime - client->entry_time) / 3600; // convertim în ore
-        if (hoursParked < 0) {
-            // Dacă a intrat după ora curentă, setează la 0
+        if (hoursParked < 1) {
+            // daca a intrat după ora curenta, setează la a
             hoursParked = 1;
         }
 
@@ -653,7 +623,7 @@ void handleCommand(char *command, Client *client, parkingInfo *info, int client_
                 } 
 //quit admin                
     } else if (strncmp(command, "quit server",11) == 0) {
-                            // Verifică dacă utilizatorul este admin
+                            // utilizatorul este admin
                             if (strncmp(client->username, "admin", 5) == 0) {
                                 printf("Serverul se închide...\n");
                                 logout(client);
@@ -713,7 +683,7 @@ void handleCommand(char *command, Client *client, parkingInfo *info, int client_
 void *client_handler(void *arg ) {
     parkingInfo *park = (parkingInfo *)malloc(sizeof(struct parkingInfo));
     Client *client = (Client *)arg;
-    int client_sock = client->sd; // Obțineți socket-ul clientului curent
+    int client_sock = client->sd; // Obtin socket-ul clientului curent
     char buffer[BUFFER_SIZE];
     char command[BUFFER_SIZE] = {0};
     int islogin = 0;
@@ -799,11 +769,11 @@ restart:
             continue;
         }
 
-        // Verificăm comanda primită
+        // Verific comanda primita
         if (strncmp(command, "Creare cont", 11) == 0) {
 
             isCreateAccount = 1;
-            // Trimitem un mesaj clientului pentru a-l informa că trebuie să introducă numele și parola
+            // Trimitem un mesaj clientului pentru a-l informa ca trebuie sa introduca numele si parola
             strncpy(buffer, "Introduceți numele și parola pentru contul nou ",50);
             send(client_sock, buffer, strlen(buffer), 0);
             memset(command, 0, sizeof(buffer));
@@ -811,7 +781,7 @@ restart:
             continue;
         
         } else if (strncmp(command, "Autentificare", 13) == 0 ) {
-            // Resetăm flag-ul de creare a contului
+            // Resetam flag-ul de creare a contului
             
             islogin = 1;
             strncpy(buffer, "Introduceți numele și parola pentru cont ",44);

@@ -31,9 +31,9 @@
         "password": "user",
         "sd": 0,
         "isAuthenticated": 1,
-        "parkingSpot": 0,
+        "parkingSpot": 7,
         "hasSubscription": false,
-        "entry_time": 0
+        "entry_time": 1735996806
     },
     "user2": {
         "username": "user2",
@@ -42,7 +42,7 @@
         "isAuthenticated": 1,
         "parkingSpot": 3,
         "hasSubscription": false,
-        "entry_time": 1705090733
+        "entry_time": 1735996620
     },
     "user3": {
         "username": "user3",
@@ -61,15 +61,6 @@
         "parkingSpot": 0,
         "hasSubscription": false,
         "entry_time": 0
-    },
-    "Sclav": {
-        "username": "Sclav",
-        "password": "prost",
-        "sd": 0,
-        "isAuthenticated": 1,
-        "parkingSpot": 4,
-        "hasSubscription": false,
-        "entry_time": 1705157426
     },
     "user4": {
         "username": "user4",
@@ -92,6 +83,24 @@
     "Sami": {
         "username": "Sami",
         "password": "parola",
+        "sd": 0,
+        "isAuthenticated": 1,
+        "parkingSpot": 0,
+        "hasSubscription": false,
+        "entry_time": 0
+    },
+    "user2025": {
+        "username": "user2025",
+        "password": "parola",
+        "sd": 0,
+        "isAuthenticated": 1,
+        "parkingSpot": 2,
+        "hasSubscription": false,
+        "entry_time": 1735928008
+    },
+    "rares": {
+        "username": "rares",
+        "password": "cazan ",
         "sd": 0,
         "isAuthenticated": 1,
         "parkingSpot": 0,
